@@ -1,0 +1,11 @@
+条件：只使用训练集数据，70%作为训练集，30%作为测试集，降1000HZ为250HZ，数据标准化。
+模型定义：
+model = ATCNet(n_classes=3, in_chans=X_train.shape[2], in_samples=X_train.shape[3],n_windows=5, attention='mha',
+           eegn_F1=16, eegn_D=2, eegn_kernelSize=64, eegn_poolSize=8, eegn_dropout=0.3,
+           tcn_depth=2, tcn_kernelSize=4, tcn_filters=32, tcn_dropout=0.3,
+           tcn_activation='elu', fuse='average')
+
+测试结果（准确率）：
+S1：59.68%（稳定）
+S2：44.44%（稳定）
+S3：37.04%（高），22%（稳定）
